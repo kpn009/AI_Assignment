@@ -12,6 +12,10 @@ dependencies:
   - matplotlib.pyplot 
   - seaborn
   - scikit-learn
+  - json
+  - typing
+  - sys
+  - math
   - scipy
   - networkx
   - cudatoolkit=12.4
