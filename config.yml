@@ -1,1 +1,26 @@
+name: CSF407_2025_2022A7PS0057H
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - scipy
+  - networkx
+  - cudatoolkit=12.4
+  - pip
+  - pip:
+      - pgmpy
+      - protobuf
+      - cudf-cu12 @ https://pypi.nvidia.com/cudf-cu12/cudf_cu12-24.12.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+      - libcudf-cu12 @ https://pypi.nvidia.com/libcudf-cu12/libcudf_cu12-24.12.0-py3-none-manylinux_2_28_x86_64.whl
+      - pylibcudf-cu12 @ https://pypi.nvidia.com/pylibcudf-cu12/pylibcudf_cu12-24.12.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
+      - nx-cugraph-cu12 @ https://pypi.nvidia.com/nx-cugraph-cu12/nx_cugraph_cu12-24.12.0-py3-none-any.whl
+      - torch @ https://download.pytorch.org/whl/cu124/torch-2.5.1%2Bcu124-cp311-cp311-linux_x86_64.whl
+      - torchaudio @ https://download.pytorch.org/whl/cu124/torchaudio-2.5.1%2Bcu124-cp311-cp311-linux_x86_64.whl
+      - torchvision @ https://download.pytorch.org/whl/cu124/torchvision-0.20.1%2Bcu124-cp311-cp311-linux_x86_64.whl
 
