@@ -37,7 +37,6 @@ This project implements a simulation of a Wumpus World agent navigating a grid-b
   - Uses updated probability estimates to choose the safest move.
   - Implements backtracking if no safe move is found.
 - **Visualization**:
-  - Displays a heatmap of the risk probabilities (pit likelihoods) at each move.
   - Saves the heatmap images to files (e.g., `best_move_1.png`, `best_move_2.png`, etc.).
 
 # Merged System: Tic Tac Toe & Wumpus World Integration
@@ -65,5 +64,5 @@ For each move in the Wumpus World:
   The outcome of a Tic Tac Toe game dictates the agent's move in the Wumpus World.
   
 - **Risk Visualization:**  
-  Each move in the Wumpus World is accompanied by a heatmap display showing the current risk probabilities (pit likelihoods).
+  Each move in the Wumpus World is accompanied by saving a heatmap showing the current risk probabilities (pit likelihoods). The heatmap is stored with the name move_1, move_2 etc.
 
