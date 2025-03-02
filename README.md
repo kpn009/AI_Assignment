@@ -20,6 +20,8 @@ This project implements a flexible tic-tac-toe game-playing system that supports
   - The current board state is printed after every move.
 - **Board Image Saving**:
   - After every move (by either an LLM or a human), the current board is saved as an image file (e.g., `tic_tac_toe_move_3.png`).
+  - At the end, all the moves played by both players are saved as json file (e.g. 'Excercise1.json')
+  - And the binomial distribution for 500 trials is stored as a png file (eg. 'Excercise1.png')
   - This allows you to visually track the progress of the game.
 
  - # Wumpus World Agent Simulation
