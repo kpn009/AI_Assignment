@@ -17,7 +17,7 @@ class WumpusWorldAgent:
         self.move_count = 1
         self.generate_world()
         self.create_bayesian_network()
-    
+
     def generate_world(self):
         cells = [(i, j) for i in range(self.n) for j in range(self.n) if (i, j) != (0, 0)]
         random.shuffle(cells)
@@ -25,7 +25,7 @@ class WumpusWorldAgent:
         self.gold_pos = cells.pop()
         pit_count = max(1, self.n // 4)
         self.pit_positions = [cells.pop() for _ in range(pit_count)]
-    
+
     def create_bayesian_network(self):
         self.model = BayesianModel()
         for i in range(self.n):
@@ -39,39 +39,45 @@ class WumpusWorldAgent:
                     self.model.add_edge(f'P_{x}_{y}', f'B_{i}_{j}')
         cpd_p = TabularCPD(variable='P_0_0', variable_card=2, values=[[0.8], [0.2]])
         self.model.add_cpds(cpd_p)
-    
+
     def get_neighbors(self, x, y):
         return [(x+dx, y+dy) for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)] if 0 <= x+dx < self.n and 0 <= y+dy < self.n]
-    
-    def choose_next_move(self):
+
+    def choose_next_move(self, best_move=True):
         x, y = self.position
         neighbors = self.get_neighbors(x, y)
         safe_moves = [(nx, ny) for nx, ny in neighbors if not self.visited[nx, ny]]
-        
-        if safe_moves:
-            return min(safe_moves, key=lambda pos: self.probability_matrix[pos])
-        return None
-    
+        if not safe_moves:
+            return None
+        return min(safe_moves, key=lambda pos: self.probability_matrix[pos]) if best_move else random.choice(safe_moves)
+
     def update_probabilities(self):
         x, y = self.position
         for nx, ny in self.get_neighbors(x, y):
             if not self.visited[nx, ny]:
                 self.probability_matrix[nx, ny] *= 1.2 if (nx, ny) in self.pit_positions else 0.8
-    
+
     def move(self):
         self.visited[self.position] = True
         self.path.append(self.position)
         self.update_probabilities()
-        
+
         plt.figure(figsize=(6,6))
         sns.heatmap(self.probability_matrix, annot=True, cmap='coolwarm')
         plt.title(f"Move {self.move_count}")
         plt.show()
-        plt.savefig(f"best_move_{self.move_count}.png")
+        plt.savefig(f"move_{self.move_count}.png")
         plt.close()
         self.move_count += 1
-        
-        next_move = self.choose_next_move()
+
+        while True:
+            choice = input("Enter 'B' for best move or 'R' for random move: ").strip().upper()
+            if choice in ['B', 'R']:
+                best_move = choice == 'B'
+                break
+            print("Invalid choice. Please enter 'B' or 'R'.")
+
+        next_move = self.choose_next_move(best_move)
         if next_move:
             self.position = next_move
         else:
@@ -84,7 +90,7 @@ class WumpusWorldAgent:
                     self.position = (0, 0)
                 if self.choose_next_move():
                     break
-    
+
     def find_gold(self):
         while self.position != self.gold_pos:
             self.move()
