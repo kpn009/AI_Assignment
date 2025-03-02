@@ -1,7 +1,9 @@
 # CSF407_2025_2022A7PS0057H_2021B5A7PS2970H_2022A7PS0109H_2022A7PS1299H
 # TicTacToe Game with LLM Agents(Task1)
 
-This project implements a flexible tic-tac-toe game-playing system that supports both automated LLM vs. LLM simulations and interactive LLM vs. Human play. The system is built on a customizable NxN board and simulates moves using simple heuristics.
+- This project implements a flexible tic-tac-toe game-playing system that supports both automated LLM vs. LLM simulations and interactive LLM vs. Human play. The system is built on a customizable NxN board and simulates moves using simple heuristics.
+- The main python script is in the file titles 'tic-tac-toe.py', which is accompanied with a jupytr notebook titled 'assignment1_task1.ipynb' and images and json files of results of different test cases in the Task1 folder.
+
 
 ## Features
 
@@ -26,7 +28,8 @@ This project implements a flexible tic-tac-toe game-playing system that supports
 
 # Wumpus World Agent Simulation
 
-This project implements a simulation of a Wumpus World agent navigating a grid-based environment. The agent's goal is to find gold while avoiding pits and the Wumpus. It uses a Bayesian network to model the risk (pit probabilities) in each cell and makes movement decisions based on updated risk assessments.
+- This project implements a simulation of a Wumpus World agent navigating a grid-based environment. The agent's goal is to find gold while avoiding pits and the Wumpus. It uses a Bayesian network to model the risk (pit probabilities) in each cell and makes movement decisions based on updated risk assessments.
+- The main python script is in the file titles 'wumpus_world_system.py', which is accompanied with a jupytr notebook titled 'assignment1_task2.ipynb' and images of results of different test cases in the Task2 folder.
 
 ## Features
 
@@ -43,7 +46,8 @@ This project implements a simulation of a Wumpus World agent navigating a grid-b
 
 # Merged System: Tic Tac Toe & Wumpus World Integration
 
-This project integrates two simulation exercises into one system:
+- This project integrates two simulation exercises into one system:
+-  The main python script is in the file titles 'tic_tac_toe_wumpus_world_integrated_system.py', which is accompanied with a jupytr notebook titled 'assignment1_task3.ipynb' and images of results of different test cases in the Task3 folder.
 
 - **Tic Tac Toe Simulation (Exercise 1):**  
   Uses simulated LLM agents (ChatGPT as LLM-1 and Claude as LLM-2) to play Tic Tac Toe. The outcome of each game is used to determine the next action in the Wumpus World.
