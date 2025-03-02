@@ -24,7 +24,7 @@ This project implements a flexible tic-tac-toe game-playing system that supports
   - And the binomial distribution for 500 trials is stored as a png file (eg. 'Excercise1.png')
   - This allows you to visually track the progress of the game.
 
- - # Wumpus World Agent Simulation
+# Wumpus World Agent Simulation
 
 This project implements a simulation of a Wumpus World agent navigating a grid-based environment. The agent's goal is to find gold while avoiding pits and the Wumpus. It uses a Bayesian network to model the risk (pit probabilities) in each cell and makes movement decisions based on updated risk assessments.
 
