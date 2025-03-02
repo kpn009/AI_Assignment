@@ -110,7 +110,6 @@ class WumpusWorldAgent:
         plt.figure(figsize=(6,6))
         sns.heatmap(self.probability_matrix, annot=True, cmap='coolwarm')
         plt.title(f"Move {self.move_count}")
-        plt.show()
         plt.savefig(f"best_move_{self.move_count}.png")
         plt.close()
         self.move_count += 1
@@ -124,7 +123,10 @@ class WumpusWorldAgent:
                 last_position = self.path.pop()
                 self.position = last_position[:2]
                 self.path.append((*self.position, 'BCK'))
-                if self.choose_next_move(best_move):
+                
+                next_move = self.choose_next_move(best_move)
+                if next_move:
+                    self.position = next_move
                     break
     
     def find_gold(self):
@@ -132,7 +134,7 @@ class WumpusWorldAgent:
             ttt = TicTacToe(self.ttt_size)
             winner = ttt.play_game()
             print(f"Tic-Tac-Toe Winner: {winner}")
-            best_move = True  # LLM1 always wins, even on a draw
+            best_move = True if winner == 'LLM1' else False
             self.move(best_move)
         print("Gold found at:", self.position)
         print("Path taken:", self.path)
