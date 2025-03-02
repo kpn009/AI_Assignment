@@ -65,7 +65,6 @@ class WumpusWorldAgent:
         plt.figure(figsize=(6,6))
         sns.heatmap(self.probability_matrix, annot=True, cmap='coolwarm')
         plt.title(f"Move {self.move_count}")
-        plt.show()
         plt.savefig(f"move_{self.move_count}.png")
         plt.close()
         self.move_count += 1
