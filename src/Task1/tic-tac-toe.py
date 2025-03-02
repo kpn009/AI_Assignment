@@ -268,7 +268,7 @@ if __name__ == "__main__":
     if mode == "1":
         run_trials(size)
         print(f"Completed 500 trials. Results saved in Exercise1.json, histogram in Exercise1.png,")
-        print("and binomial distribution in Exercise1_alternate.png.")
+        print("and binomial distribution in Exercise1.png.")
     elif mode == "2":
         llm_agent = LLMAgent("ChatGPT", "O")
         run_human_vs_llm(size, llm_agent)
